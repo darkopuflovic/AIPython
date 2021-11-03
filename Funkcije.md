@@ -66,20 +66,23 @@ Primer:
 ```python
 print.__qualname__
 ```
-`'print'`
+
+|Output>|`'print'`|
+|-------|:-------:|
+
 ```python
 stampaj = print
 stampaj.__qualname__
 ```
-```
-Output> 'print'
-```
+
+|Output>|`'print'`|
+|-------|:-------:|
+
 ```python
 stampaj("Poruka")
 ```
-```
-Output> Poruka
-```
+|Output>|`Poruka`|
+|-------|:------:|
 
 Funkcije višeg reda su funkcije koje prihvataju druge funkcije kao argument i vraćaju funkciju kao rezultat. Kao što se vidi u prethodnoj listi, ovo je posledica koja proizilazi iz 1. i 2. pravila funkcija prve klase, pa se zato kaže da funkcije višeg reda postoje zahvaljujući funkcijama prve klase.
 Postojanje funkcija prve klase zahteva postojanje funkcija višeg reda, ali obrnuto ne važi.
