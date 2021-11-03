@@ -1,6 +1,8 @@
 # Monad
 
-![Monad](Slike/Monad.png)
+<p align="center">
+  <img src="Slike/Monad.png" />
+</p>
 
 Funkciju koja je čista jednostavno je izmeniti tako da se u nju uvedu posledice. Da bi se zadržala čista funkcija, ona mora da sve ulazne podatke dobija preko argumenata i da joj jedini rezultat bude povratni podatak (iako on može da ima više od jednog podatka u sebi, tuple, list...).
 

@@ -16,7 +16,9 @@ Najveće mane predstavljaju:
 
 # Rekurzija
 
-![Rekurzija](Slike/Recursion.png)
+<p align="center">
+  <img src="Slike/Recursion.png" />
+</p>
 
 Postoji više vrsta rekurzije i ona se može podeliti na više načina.
 Prvi način je podela po mestu na kome se rekurzivni poziv nalazi:
