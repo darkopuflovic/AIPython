@@ -66,27 +66,29 @@ def factorialRR(n, acc = 1):
 ```python
 print.__qualname__
 ```
-<div style="background: #101010; color: #A0A0A0; padding: 15px; margin-bottom: 10px">
+```
 'print'
-</div>
+```
 
 ```python
 stampaj = print
 stampaj.__qualname__
 ```
-<div style="background: #101010; color: #A0A0A0; padding: 15px; margin-bottom: 10px">
+```
 'print'
-</div>
+```
 
 ```python
 stampaj("Poruka")
 ```
-<div style="background: #101010; color: #A0A0A0; padding: 15px; margin-bottom: 10px">
+```
 Poruka
-</div>
+```
 
 ## Funkcije višeg reda su funkcije koje prihvataju druge funkcije kao argument i vraćaju funkciju kao rezultat. Kao što se vidi u prethodnoj listi, ovo je posledica koja proizilazi iz 1. i 2. pravila funkcija prve klase, pa se zato kaže da funkcije višeg reda postoje zahvaljujući funkcijama prve klase.
 ## Postojanje funkcija prve klase zahteva postojanje funkcija višeg reda, ali obrnuto ne važi.
 
 ## Čiste funkcije su funkcije koje ne proizvode nikakve posledice, ne menjajući stanja izvan samog tela funkcije, već mogu da menjaju samo lokalne promenjive, a komunikaciju sa drugim funkcijama vrše putem argumenata, koji takođe ne smeju da budu promenjeni, kao i povratne vrednosti, kojom se rezultat šalje iz funkcije nazad.
 ## Korišćenje čistih funkcija je jako bitno zato što omogućava bezbedno izvršavanje konkurentnog koda kod paralelnog programiranja, ali i zato što omogućava lakše pisanje funkcija i debagiranje. Greške u izvršenju su svedene na minimum, a jednostavno je pratiti tok izvršenja.
+
+# [Monad](Monad.md)
