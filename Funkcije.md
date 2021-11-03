@@ -1,17 +1,8 @@
-<style>
-  img
-  {
-    display: block;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-  }
-</style>
-
 # Funkcije
 
-![Funkcija](Slike/Function.png)
+<p align="center">
+  <img src="Slike/Function.png" />
+</p>
 
 Funkcionalno programiranje nije osnovna paradigma programiranja u Python programskom jeziku, zato što je on prvenstveno objektno-orijentisan jezik. Ipak, on ima podršku za rad sa velikim brojem funkcionalnih koncepata, kao što su lambda izrazi, pretraga po šablonima (pattern matching), funkcije prve klase, funkcije višeg reda i čiste funkcije.
 Funkcionalno programiranje ima svoje prednosti i mane. Neke od prednosti su i:
