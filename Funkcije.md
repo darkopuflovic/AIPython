@@ -1,4 +1,17 @@
+<style>
+  img
+  {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
+</style>
+
 # Funkcije
+
+![Funkcija](Slike/Function.png)
 
 Funkcionalno programiranje nije osnovna paradigma programiranja u Python programskom jeziku, zato što je on prvenstveno objektno-orijentisan jezik. Ipak, on ima podršku za rad sa velikim brojem funkcionalnih koncepata, kao što su lambda izrazi, pretraga po šablonima (pattern matching), funkcije prve klase, funkcije višeg reda i čiste funkcije.
 Funkcionalno programiranje ima svoje prednosti i mane. Neke od prednosti su i:
@@ -11,6 +24,9 @@ Najveće mane predstavljaju:
 - Stanje, koje je teško zapamtiti, zato što se prenosi sa izlaza jedne na ulaz druge funkcije
 
 # Rekurzija
+
+![Rekurzija](Slike/Recursion.png)
+
 Postoji više vrsta rekurzije i ona se može podeliti na više načina.
 Prvi način je podela po mestu na kome se rekurzivni poziv nalazi:
  - Primitivna rekurzija (rekurzija glave) - Eng. Head Recursion
