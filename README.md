@@ -3,7 +3,7 @@
 
 ## U ovim datotekama takođe možete pronaći blokove sa kodom koji je na prezentaciji korišćen. Kod je jednostavno kopirati dugmetom koji se nalazi u gornjem desnom uglu bloka.
 
-## [Funkcije](Funkcije.md)
+## [Funkcije](Functions.md)
 ## [Monad](Monad.md)
 ## [Memoizacija](Memoizacija.md)
 ## [Lambda izrazi](Lambda.md)
