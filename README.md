@@ -1,18 +1,19 @@
-```python
-def fibonacciMemo(n, memo = {}):
-    if (n <= 1):
-        memo[n] = n
-        return n
-    else:
-        if ((n - 1) in memo.keys()):
-            nm1 = memo[n - 1]
-        else:
-            nm1 = fibonacciMemo(n - 1, memo)
-            memo[n - 1] = nm1
-        if ((n - 2) in memo.keys()):
-            nm2 = memo[n - 2]
-        else:
-            nm2 = fibonacciMemo(n - 2, memo)
-            memo[n - 2] = nm2
-    return nm1 + nm2
-```
+# Python - Funkcionalno programiranje
+## U listi koja se nalazi ispod, možete da pronađete linkove do datoteka u kojima se nalaze pojašnjenja koncepata objašnjenih na prezentaciji sa računskih vežbi iz predmeta Veštačka inteligencija.
+
+## U ovim datotekama takođe možete pronaći blokove sa kodom koji je na prezentaciji korišćen. Kod je jednostavno kopirati dugmetom koji se nalazi u gornjem desnom uglu bloka.
+
+## [Funkcije]()
+## [Monad]()
+## [Memoizacija]()
+## [Lambda izrazi]()
+## [Lazy evaluation]()
+## [Curry, Uncurry, Compose]()
+## [Python funkcije (min, max, map, filter, zip)]()
+## [Biblioteke]()
+## [functools modul]()
+## [operator modul]()
+## [itertools modul]()
+## [Comprehensions]()
+## [Regularni izrazi]()
+## [Pattern matching]()
