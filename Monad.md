@@ -115,9 +115,9 @@ Ili čak možda i jednostavnije, korišćenjem funkcije koja našu funkciju izvr
 ```python
 kvadrat = lambda x: bind(kvadratPP, x)
 
-def kvadratN(n, stepen):
+def kvadratN(n: int, korak: int) -> (int, str):
     k = unit(n)
-    for i in range(0, stepen):
+    for _ in range(0, korak):
         k = kvadrat(k)
     return k
 
