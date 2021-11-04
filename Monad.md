@@ -12,7 +12,7 @@ Da bi se ovo izbeglo moguće je da se print naredba ne koristi unutar same funkc
 
 Na ovaj način, funkcija ostaje čista, ali se neke njene funkcionalnosti onemogućavaju. Ukoliko je ona imala jedan argument i kao povratni tip je imala jedan podatak istog tipa, na ovaj način je bilo moguće rezultat prethodnog poziva funkcije proslediti na ulaz sledećeg poziva. Nakon što je broj podataka u povratnom tipu promenjen, ovo je onemogućeno.
 
-Rešenje ovog problema predstavlja monad! Monad predstavljaju 2 funkcije, `unit` i `bind` funkcija. One omogućavaju da se ulazni podatak transformiše u argument koji funkcija može da prihvati (u zavisnosti od konkretnog problema) (funkcija `unit`) i da se funkcija koju treba izvršiti prihvati kao parametar, kao i podaci koje treba koristiti za izvršenje funkcije (funkcija `bind`).
+Rešenje ovog problema predstavlja monad. Monad predstavljaju 2 funkcije, `unit` i `bind` funkcija. One omogućavaju da se ulazni podatak transformiše u argument koji funkcija može da prihvati (u zavisnosti od konkretnog problema) (funkcija `unit`) i da se funkcija koju treba izvršiti prihvati kao parametar, kao i podaci koje treba koristiti za izvršenje funkcije (funkcija `bind`).
 
 Ovo ćemo najlakše videti na jednom prostom primeru. Zamislimo da nam je potrebna čista funkcija koja treba da nam kvadrira broj. Ova funkcija treba da prihvata broj, a da ima rezultat koji je kvadrirani broj. Nju bi mogli da realizujemo na sledeći način:
 
@@ -103,7 +103,7 @@ print(bind(kvadratPP,
 
 Ostaje još jedan problem. A to je nepreglednost ovog poziva. Da li je moguće olakšati pozivanje funkcije `bind`, da bi celokupno ulančavanje bilo preglednije?
 
-Rešenje je naravno korišćenje lambda izraza.
+Rešenje je naravno korišćenje lambda izraza. Naravno, moguće je napisati i identičnu metodu, ali je ipak jednostavnije korišćenje lambda izraza.
 ```python
 kvadrat = lambda x: bind(kvadratPP, x)
 kvadrat(kvadrat(kvadrat(unit(2))))
