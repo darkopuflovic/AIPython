@@ -16,7 +16,7 @@ Najveće mane predstavljaju:
 
 - Input/Output sistem, koji ne može da se implementira na funkcionalan način
 - Rekurzija, koja je uglavnom sporija od korišćenja iteracija
-- Stanje, koje je teško zapamtiti, zato što se prenosi sa izlaza jedne na ulaz druge funkcije
+- Stanje, koje je teško pratiti, zato što se prenosi sa izlaza jedne na ulaz druge funkcije
 
 # Rekurzija
 
