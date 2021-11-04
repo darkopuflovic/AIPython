@@ -121,7 +121,7 @@ def kvadratN(n, stepen):
         k = kvadrat(k)
     return k
 
-kvadratN(4)
+kvadratN(2, 4)
 ```
 |Output>|`(65536, 'Broj: 2, Broj: 4, Broj: 16, Broj: 256')`|
 |-------|:-------:|
