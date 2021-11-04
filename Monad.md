@@ -126,4 +126,21 @@ kvadratN(2, 4)
 |Output>|`(65536, 'Broj: 2, Broj: 4, Broj: 16, Broj: 256')`|
 |-------|:-------:|
 
-### [Memoizacija](Memoizacija.md)
+##
+
+|Navigacija|
+|:-------|
+|[Funkcije](Funkcije.md)|
+|[Monad](Monad.md)|
+|[Memoizacija](Memoizacija.md)|
+|[Lambda izrazi](Lambda.md)|
+|[Lazy evaluation](Lazy.md)|
+|[Curry, Uncurry, Compose](Curry.md)|
+|[Python funkcije (min, max, map, filter, zip)](Functions.md)|
+|[Biblioteke](Library.md)|
+|[functools modul](functools.md)|
+|[operator modul](operator.md)|
+|[itertools modul](itertools.md)|
+|[Comprehensions](Comprehensions.md)|
+|[Regularni izrazi](RegularExpressions.md)|
+|[Pattern matching](PatternMatching.md)|
