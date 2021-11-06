@@ -1,6 +1,8 @@
 # Lambda izrazi (Lambda expressions)
 
-![Lambda](Slike/Lambda.png)
+<p align="center">
+  <img src="Slike/Lambda.png" />
+</p>
 
 Lambda izrazi u funkcionalnim programskim jezicima su koncept koji je pozajmljen iz matematike. Koncept je nastao 1930. godine i uveden je u matematiku zahvaljujući matematičaru Alonzo Čerču (`Eng. Alonzo Church`). Sredinom prošlog veka, veliki broj istraživanja u ovoj oblasti omogućio je da se uvidi korisnost ovog pristupa u računarstvu, pa je još tada nastala ideja da ovaj model može da bude korišćen za simuliranje Turingovih mašina.
 
