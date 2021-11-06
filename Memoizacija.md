@@ -77,6 +77,10 @@ Vidimo da je vreme potrebno za računanje `100-tog` Fibonačijevog broja sada ne
 
 Na ovaj način je moguće izmeniti i komplikovaniji algoritam, ali modifikacije koda su nepoželjne kada imamo intuitivan algoritam, kao što su to rekurzivni algoritmi. Zato, memoizaciju iz Python programskog jezika možemo da koristimo i na mnogo jednostavniji način, korišćenjem modula `functools`.
 
+
+[Uključivanje modula](Library.md)
+
+
 ```python
 from functools import cache
 
