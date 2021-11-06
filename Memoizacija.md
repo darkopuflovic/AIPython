@@ -6,7 +6,7 @@ Očigledno je da ovaj pristup nije najoptimalniji. Da bi rešili ovaj problem i 
 
 Memoizacija je naziv za ovu optimizaciju. Izmene koje kod mora da pretrpi uglavnom nisu velike, ali ušteda u vremenu izvršanja može biti ogromna. Ipak, potrebno je voditi računa na koji način se ova optimizacija koristi, zato što ona može da upotrebi isuviše veliki deo memorije računara za pamćenje svih stanja, pa na taj način možemo da izgubimo više nego što dobijamo od ubrzanja.
 
-Najbolje ćemo memoizaciju upamtiti na prostom primeru, određivanja n-tom Fibonačijevog broja:
+Najbolje ćemo memoizaciju demonstrirati na prostom primeru, određivanja n-tog Fibonačijevog broja:
 
 ```python
 def fibonacci(n):
@@ -136,9 +136,9 @@ print(testFibonacciCacheD())
 |Output>|`(354224848179261915075, '0:00:00.000094')`|
 |-------|:-------:|
 
-Vidimo da je rezultat gotovo identičan, uz mala odstupanja, koja su prisutna zato što se radi o veoma kratkim vremenskim intervalima. Kako se broj n povećava, vremena izvršenja za sve 3 verzije memoizacije su bliža istim vrednostima.
+Vidimo da je rezultat gotovo identičan, uz mala odstupanja, koja su prisutna zato što se radi o veoma kratkim vremenskim intervalima. Kako se broj n povećava, vremena izvršenja za sve 3 verzije memoizacije su približno jednaka.
 
-Treba napomenuti i to da pored `cache` funkcije, modul `functools` sadrži i funkciju `lru_cache`. Razlika između ove dve funkcije je postojanje dodatnih argumenata kod funkcije `lru_cache`, `maxsize` i `typed`. `maxsize` omogućava nam omogućava da postavimo maksimalnu veličinu rečnika koji će pamtiti vrednosti, dok nam `typed` omogućava da različite tipove posmatramo na isti ili različiti način na mestu argumenta (npr. 3 i 3.0 su kod `typed=True` različiti unosi u rečniku, dok su kod `typed=False` isti).
+Treba napomenuti i to da pored `cache` funkcije, modul `functools` sadrži i funkciju `lru_cache`. Razlika između ove dve funkcije je postojanje dodatnih argumenata kod funkcije `lru_cache`: `maxsize` i `typed`. `maxsize` nam omogućava da postavimo maksimalnu veličinu rečnika koji će pamtiti vrednosti, dok nam `typed` omogućava da različite tipove posmatramo na isti ili različiti način na mestu argumenta (npr. 3 i 3.0 su kod `typed=True` različiti unosi u rečniku, dok su kod `typed=False` isti).
 
 ```python
 from timeit import default_timer as timer
@@ -217,9 +217,9 @@ print(testFibonacciLRUD2())
 |Output>|`(102334155, '0:00:00.355868')`|
 |-------|:-------:|
 
-Primetimo da se sada radi o `40-tom` Fibonačijevom broju, a dužina trajanja je već trećina sekunde. I dalje je ovaj kod brži od čistog rekurzivnog poziva, ali ne kao u slučaju kada nam je rečnik bar za jedan unos veći (3 bi nam bilo dovoljno da upamtimo sve vrednosti koje bi mogle da nam budu potrebne u narednim iteracijama, zato što se radi o Fibonačijevim brojevima).
+Primetimo da se sada radi o `40-tom` Fibonačijevom broju, a dužina trajanja je već `trećina sekunde`. I dalje je ovaj kod brži od čistog rekurzivnog poziva, ali ne kao u slučaju kada nam je rečnik bar za jedan unos veći (3 bi nam bilo dovoljno da upamtimo sve vrednosti koje su nam potrebne u narednim iteracijama, zato što se radi o Fibonačijevim brojevima).
 
-Pored ovoga, možemo da vidimo i statistiku broja pogodata i promašaja u našem rečniku. To možemo da uradimo korišćenjem funkcije `cache_info`.
+Pored ovoga, možemo da vidimo i statistiku broja pogodaka i promašaja u našem rečniku. To možemo da uradimo korišćenjem funkcije `cache_info`.
 
 ```python
 fibonacciLRUD2(40)
