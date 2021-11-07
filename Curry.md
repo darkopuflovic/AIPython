@@ -149,7 +149,7 @@ print(add(10)(20)(30)(40))
 |       |`<function __main__.curry.<locals>.<lambda>(*x, **y)>`|
 |       |`TypeError: 'int' object is not callable`|
 
-Primećujemo da je izlaz iz poslednje print naredbe greška, bez obzira na liniju koda koja proverava da li je broj argumenata veći od dozvoljenog. To se dešava zato što je nakon 3 poziva (10, 20, 30), funkcija vratila `int` tip podataka i sledeći argument (40) se poziva nad njim, bez obzira na funkciju `curry`, zato što ona u ovom slučaju nije vratila lambda izraz.
+Primećujemo da je izlaz iz poslednje print naredbe greška, bez obzira na liniju koda koja proverava da li je broj argumenata veći od dozvoljenog. To se dešava zato što je nakon 3 poziva (10, 20, 30), funkcija vratila `int` tip podataka i sledeći argument (40) se poziva nad njim, bez obzira na funkciju `curry`, zato što ona u ovom slučaju nije vratila lambda izraz. Da smo svih 4 argumenata prosledili odjednom ili smo poslednja 2 prosledili zajedno, ovo se ne bi dogodilo.
 
 Prvi poziv funkcije sa jednim argumentom, vraća nam lambda izraz, koji očekuje ostatak argumenata.
 
