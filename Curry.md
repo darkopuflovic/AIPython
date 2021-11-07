@@ -80,24 +80,6 @@ Ovaj način prihvatanja argumenata može da nam bude od koristi ukoliko želimo 
 
 ```python
 def curry(func, *args, **kwargs):
-    if (len(args) + len(kwargs)) == func.__code__.co_argcount:
-        return func(*args, **kwargs)
-    return (lambda *x, **y: curry(func, *(args + x), **dict(kwargs, **y)))
-
-@curry  #Dekorator
-def add(x, y, z):
-    return x + y + z
-
-print(add(10)(20)(30))
-```
-
-|Output>|`60`|
-|-------|:-------:|
-
-Ili na drugi način, bez korišćenja dekoratora:
-
-```python
-def curry(func, *args, **kwargs):
     if (len(args) + len(kwargs)) > func.__code__.co_argcount:
         return "Greška u broju argumenata"
     if (len(args) + len(kwargs)) == func.__code__.co_argcount:
@@ -110,6 +92,26 @@ def add(x, y, z):
 curryVerzijaAdd = curry(add)
 
 print(curryVerzijaAdd(10)(20)(30))
+```
+
+|Output>|`60`|
+|-------|:-------:|
+
+Ili na drugi način, korišćenjem dekoratora:
+
+```python
+def curry(func, *args, **kwargs):
+    if (len(args) + len(kwargs)) > func.__code__.co_argcount:
+        return "Greška u broju argumenata"
+    if (len(args) + len(kwargs)) == func.__code__.co_argcount:
+        return func(*args, **kwargs)
+    return (lambda *x, **y: curry(func, *(args + x), **dict(kwargs, **y)))
+
+@curry  #Dekorator
+def add(x, y, z):
+    return x + y + z
+
+print(add(10)(20)(30))
 ```
 
 |Output>|`60`|
