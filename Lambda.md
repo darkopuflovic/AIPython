@@ -14,6 +14,7 @@ To možemo da vidimo na nekoliko prostih primera.
 kvadratLambda = lambda x: x ** 2
 kvadratLambda(10)
 ```
+
 |Output>|`100`|
 |-------|:-------:|
 
@@ -25,6 +26,7 @@ def kvadratFunc(x):
 
 kvadratFunc(10)
 ```
+
 |Output>|`100`|
 |-------|:-------:|
 
@@ -34,6 +36,7 @@ Ukoliko želimo da naš lambda izraz ima više od jednog argumenta, to možemo d
 addLambda = lambda x, y: x + y
 addLambda(10, 20)
 ```
+
 |Output>|`30`|
 |-------|:-------:|
 
@@ -42,6 +45,7 @@ Ili ukoliko ne želimo da ovaj lambda izraz smeštamo u promenjivu, nego želimo
 ```python
 (lambda x, y: x + y)(10, 20)
 ```
+
 |Output>|`30`|
 |-------|:-------:|
 
@@ -53,6 +57,7 @@ def addFunc(x, y):
 
 addFunc(10, 20)
 ```
+
 |Output>|`30`|
 |-------|:-------:|
 
@@ -62,6 +67,7 @@ Iako lambda izrazi mogu da se sastoje od samo jednog izraza, ovaj izraz ne mora 
 (lambda x: 
     (x if x % 2 == 0 else "Neparan broj"))(2)
 ```
+
 |Output>|`2`|
 |-------|:-------:|
 
@@ -69,6 +75,7 @@ Iako lambda izrazi mogu da se sastoje od samo jednog izraza, ovaj izraz ne mora 
 (lambda x: 
     (x if x % 2 == 0 else "Neparan broj"))(3)
 ```
+
 |Output>|`'Neparan broj'`|
 |-------|:-------:|
 
@@ -79,12 +86,14 @@ Na sledećem primeru ćemo takođe obratiti pažnju na jednu osobinu Python prog
 ```python
 (lambda x: not (x % 2) and "Paran" or "Neparan")(8)
 ```
+
 |Output>|`'Paran'`|
 |-------|:-------:|
 
 ```python
 (lambda x: not (x % 2) and "Paran" or "Neparan")(9)
 ```
+
 |Output>|`'Neparan'`|
 |-------|:-------:|
 

@@ -25,6 +25,7 @@ def iteracija():
 for x in iteracija():
     print(x, end = " ")
 ```
+
 |Output>|`2 4 6 8 10 12 14 16 18`|
 |-------|:-------:|
 
@@ -38,6 +39,7 @@ print(next(generator), end = " ")
 print(next(generator), end = " ")
 print(next(generator), end = " ")
 ```
+
 |Output>|`2 4 6`|
 |-------|:-------:|
 
@@ -53,6 +55,7 @@ print(next(listIter), end = " ")
 print(next(listIter), end = " ")
 print(next(listIter), end = " ")
 ```
+
 |Output>|`1 2 3 4 5`|
 |-------|:-------:|
 
@@ -61,6 +64,7 @@ Ukoliko još jednom pozovemo metodu `next`, kod će nam vratiti grešku, koja na
 ```python
 print(next(listIter), end = " ")
 ```
+
 |Output>|`StopIteration`|
 |-------|:-------:|
 

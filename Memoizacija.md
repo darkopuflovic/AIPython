@@ -30,6 +30,7 @@ def testFibonacci():
 
 print(testFibonacci())
 ```
+
 |Output>|`(102334155, '0:00:44.224355')`|
 |-------|:-------:|
 

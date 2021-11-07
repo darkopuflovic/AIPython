@@ -32,11 +32,13 @@ Prvi način je podela po mestu na kome se rekurzivni poziv nalazi:
    - Rekurzivni poziv je poslednji poziv u funkciji i zavisi od ostalih izraza koji se evaluiraju ranije. Ova vrsta rekurzije se efikasno optimizuje u funkcionalnim jezicima. Nažalost, Python nema mogućnost automatske optimizacije repne rekurzije. Međutim, postoje biblioteke koje mogu da omoguće ovu optimizaciju.
 
 Primer rekurzije glave (head recursion):
+
 ```python
 # Verzija sa rekurzijom glave (head recursion)
 
 # Bez obzira gde se rekurzivni poziv nalazi (ispred ili iza * n) on mora da bude izvršen pre nego što možemo da znamo vrednost izraza, tako da se u ovom slučaju radi o rekurziji glave
 ```
+
 ```python
 def factorial(n):
     if n == 0:
@@ -44,6 +46,7 @@ def factorial(n):
     else:
         return factorial(n - 1) * n
 ```
+
 Primer rekurzije repa (tail recursion)
 
 ```python
@@ -51,6 +54,7 @@ Primer rekurzije repa (tail recursion)
 
 # acc * n mora da bude određeno pre nego što dođe do rekurzivnog poziva, tako da se radi o rekurziji repa
 ```
+
 ```python
 def factorialRR(n, acc = 1):
     if n == 0:
@@ -76,6 +80,7 @@ Funkcije prve klase su podržane u programskom jeziku Python. Sve funkcije su fu
  3. Kao i dodeljivanje funkcija promenjivama, menjanje imena funkcija kao i kopiranje funkcija u druge promenjive
 
 Primer:
+
 ```python
 print.__qualname__
 ```
@@ -94,6 +99,7 @@ stampaj.__qualname__
 ```python
 stampaj("Poruka")
 ```
+
 |Output>|`Poruka`|
 |-------|:------:|
 
