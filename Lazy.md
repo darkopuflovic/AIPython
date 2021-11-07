@@ -2,9 +2,9 @@
 
 Lenjo izračunavanje je odlika funkcionalnih programskih jezika, da se vrednost izraza ne izračunava sve dok njegova vrednost nije neophodna za dalje izvršenje programa. Ovo sa sobom nosi nekoliko prednosti i mana.
 
-- Za početak, prednost ovog pristupa u odnosu na izvršenje izraza kada se do njega stigne je ta da izrazi koji se nalaze u kodu, a čija se vrednost nikada ne koristi se neće nikada ni izračunati. Ovo može da ubrza kod u slučaju da je on napisan nepažljivo i sa dosta koda koji je nepotreban, što je čest slučaj u programiranju.
+- Za početak, prednost ovog pristupa u odnosu na standardno izvršenje izraza je ta da izrazi koji se nalaze u kodu, a čija se vrednost nikada ne koristi se neće nikada ni izračunati. Ovo može da ubrza kod u slučaju da je on napisan nepažljivo i sa dosta koda koji je nepotreban, što je čest slučaj u programiranju.
 - Još jedna prednost je ta što ovaj pristup omogućava izvršavanje koda koji ne bi bio moguć bez korišćenja lenjog izračunavanja, kao što su beskonačne kolekcije. U ovom slučaju, kreiranje ovakve kolekcije samo aplikaciji sugeriše kako treba kreirati jednu takvu iteraciju, ali ne kreira same elemente, što bi rezultiralo kodom koji se nikada neće izvršiti do kraja (problem beskonačne petlje). Onda kada je poznato koji od elemenata će biti potrebni za dalje izvršenje aplikacije, tada će `samo ti elementi` i biti kreirani.
-- Sve ovo nam omogućava i optimizacije koje zavise od lenjog izračunavanja. Naime, kod koji se koristi, kreira stabla izvršenja izraza. Ova stabla je moguće kombinovati ukoliko se u ostatku koda pojavi izraz koji zavisi od prethodnog izraza. U tom slučaju je moguće stablo transformisati, tako da je rezultujuće stablo jednostavnije od prostog zbira dva stabla.
+- Sve ovo nam omogućava i optimizacije koje zavise od lenjog izračunavanja. Naime, kod koji se koristi, kreira stabla izvršenja izraza. Ova stabla je moguće kombinovati ukoliko se u ostatku koda pojavi izraz koji zavisi od prethodnog izraza. U tom slučaju je moguće stablo transformisati, tako da je rezultujuće stablo jednostavnije od proste kombinacije dva stabla.
    - Primer za ovo bi mogao da bude optimizacija celobrojnog deljenja u Python-u. Ovo je samo primer, ne i način na koji Python funkcioniše, ali je na njemu jednostavno demonstrirati ovakve optimizacije. Zamisimo da u kodu imamo liniju u kojoj se računa količnik dva broja korišćenjem `/` operatora, pre koga se nalazi funkcija koja nam ovako dobijen floating point broj kastuje u `int` tip. Ove dve naredbe bi lako mogle da budu u stablu zamenjene `//` operatorom, koji je brži, zato što se primenjuje celobrojno deljenje, a pored toga, potpuno zaobilazimo potrebu za kastovanjem.
 - Konačno, prednost ovog pristupa je i korišćenje memorije. Vrednost koja se računa neposredno pre nego što se i koristi omogućava da se odmah nakon njene upotrebe ona i obriše iz memorije, što nam veći deo vremena pruža mogućnost da memorija bude manje iskorišćena.
 
@@ -41,7 +41,28 @@ print(next(generator), end = " ")
 |Output>|`2 4 6`|
 |-------|:-------:|
 
-Metoda `next` prihvata kao argument iteraciju. Ova iteracija, u svom stanju ima informaciju o trenutnom elementu 
+Metoda `next` prihvata kao argument iteraciju. Ova iteracija, u svom stanju ima informaciju o trenutnom elementu, pa kada bude prosleđena `next` metodi, prosleđuje element koji je sledeći i ažurira stanje.
+
+Transformacija kolekcije u iteraciju se vrši na sledeći način:
+
+```python
+listIter = iter([1, 2, 3, 4, 5])
+print(next(listIter), end = " ")
+print(next(listIter), end = " ")
+print(next(listIter), end = " ")
+print(next(listIter), end = " ")
+print(next(listIter), end = " ")
+```
+|Output>|`1 2 3 4 5`|
+|-------|:-------:|
+
+Ukoliko još jednom pozovemo metodu `next`, kod će nam vratiti grešku, koja nam govori da je iteracija došla do poslednjeg elementa i da je nemoguće vratiti sledeći element.
+
+```python
+print(next(listIter), end = " ")
+```
+|Output>|`StopIteration`|
+|-------|:-------:|
 
 ##
 
