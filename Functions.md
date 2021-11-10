@@ -93,7 +93,91 @@ Uključivanje biblioteka: [Biblioteke](Library.md)
 
 ## Modul functools
 
+Postoji više modula koji sadrže funkcije za rad sa kolekcijama. Mi ćemo pomenuti tri ovakva modula. Jedan od njih je `functools`.
 
+Kao što i sam naziv govori, ovo je modul funkcionalnih operatora. Postoji nekoliko funkcija koje će nam biti korisne:
+1. reduce
+2. cache i lru_cache
+3. partial
+
+## reduce
+
+Ovo je funkcija koja se koristi da kolekciju elemenata, koji se prosleđuju kao argument transformiše, korišćenjem funkcije, koja se takođe prosleđuje u rezultat koji nije kolekcija. Funkcija, koja se šalje kao argument, prihvata u ovom slučaju dve vrednosti, a rezultat treba da bude primena operacije nad te dve vrednosti, koju želimo da primenimo nad celom kolekcijom.
+
+```python
+from functools import reduce
+
+reduce(lambda x, y: x + y, range(1, 101))
+```
+
+|Output>|`5050`|
+|-------|:-------:|
+
+Funkcija u prvom prolazu smešta prva dva elementa kolekcije koja se prosleđuje, a zatim se u svakoj sledećoj iteraciji u prvom argumentu nalazi do sada dobijeni rezultat, a u drugom argumentu sledeći element niza. Moguće je proslediti i početnu vrednost i to na ovaj način:
+
+```python
+from functools import reduce
+
+reduce(lambda x, y: x + y, range(1, 101), 1000)
+```
+
+|Output>|`6050`|
+|-------|:-------:|
+
+<p align="center">
+  <img src="Slike/Reduce.png" />
+</p>
+
+Ilustracija na prethodnoj slici prikazuje proceduru množenja kolekcije brojeva od 1 - 4. Primer koji sledi je identičan, uz izmenu gornje granice, koja je sada `10`.
+
+```python
+from functools import reduce
+
+reduce(lambda x, y: x * y, range(1, 11), 1)
+```
+
+|Output>|`3628800`|
+|-------|:-------:|
+
+Rezultat koji na ovaj način dobijamo je zapravo `faktorijel broja 10`.
+
+## Memoizacija (funkcije cache i lru_cache)
+
+Primere za ove dve funkcije možete da pogledate na stranici [Memoizacija](Memoizacija.md)
+
+## partial funkcija
+
+Kada smo govorili o funkcijama `curry, uncurry i compose`, koristili smo metodu `curry` koja nam je omogućavala da funkciju koja prihvata više argumenata transformišemo u funkciju koja vraća drugu funkciju, sve dok broj argumenata ne bude odgovarajući za poziv same funkcije, a tek onda je poziva i vraća vrednost.
+
+Funkcija `partial` koja se nalazi u modulu `functools` nam omogućava sličnu funkcionalnost. Prosleđivanje funkcije koju želimo da transformišemo se vrši korišćenjem prvog argumenta funkcije, a nakon njega može da sledi neograničen broj drugih argumenata, koji će se zapravo tretirati kao argumenti funkcije koju smo prosledili. Na ovaj način je moguće kreirati novu funkciju koja ima `n` manje argumenata, gde `n` može da bude i isti broj argumenata koje naša funkcija prihvata. U tom slučaju je pozivamo bez argumenata.
+
+```python
+from functools import partial
+
+def metoda(p, q, r, s):
+    print(p, end=", ")
+    print(q, end=", ")
+    print(r, end=", ")
+    print(s, end=".\n")
+
+proba = partial(metoda, 10, 20, 30)
+proba(40)
+
+proba = partial(metoda, 10, 20, 30, 40)
+proba()
+
+proba = partial(metoda, 10)
+proba(20, 30, 40)
+proba(20)
+```
+
+|Output>|`10, 20, 30, 40.`|
+|-------|:-------:|
+|       |`10, 20, 30, 40.`|
+|       |`10, 20, 30, 40.`|
+|       |`TypeError: metoda() missing 2 required positional arguments: 'r' and 's'`|
+
+Kod poslednjeg primera možemo da primetimo i razliku između ove funkcije i `curry`. Ukoliko nemamo dovoljno argumenata, funkcija `partial` nam ne vraća funkciju, koja može da prihvati još argumenata, već nam vraća grešku, koja nam sugeriše da ti argumenti nedostaju.
 
 ##
 
