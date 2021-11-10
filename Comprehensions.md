@@ -115,7 +115,7 @@ print([item for subList in listT for item in subList])
 |-------|:-------|
 |       |`[1, 2, 3, 4, 5, 6, 7, 8, 9]`|
 
-Iako je pristup rešavanju problema eliminisanja podlisti potpuno drugačiji, rešenje je identično. `reduce` funkcija koristi `+` operator nad podlistama ([1, 2] + [3, 4] = [1, 2, 3, 4]) koje se nalaze u glavnoj listi, da bi kreirala konačnu listu. Pristup kod `comprehensions` sintakse je potpuno drugačiji i ova sintaksa je verovatno pogodnija za rešavanje ovakvog problema. Lista `listT` se najpre deli na podliste, koje se smeštaju u `sublist` promenjivu, a zatim se u drugoj petlji prolazi kroz elemente ove podliste, koji se direktno upisuju u rezultujući niz.
+Iako je pristup rešavanju problema eliminisanja podlisti potpuno drugačiji, rešenje je identično. `reduce` funkcija koristi `+` operator nad podlistama (`[1, 2] + [3, 4] = [1, 2, 3, 4]`) koje se nalaze u glavnoj listi, da bi kreirala konačnu listu. Pristup kod `comprehensions` sintakse je potpuno drugačiji i ova sintaksa je verovatno pogodnija za rešavanje ovakvog problema. Lista `listT` se najpre deli na podliste, koje se smeštaju u `sublist` promenjivu, a zatim se u drugoj petlji prolazi kroz elemente ove podliste, koji se direktno upisuju u rezultujući niz.
 
 ##
 
