@@ -68,6 +68,38 @@ print(next(listIter), end = " ")
 |Output>|`StopIteration`|
 |-------|:-------:|
 
+## Lazy evaluation - Fibonačijev niz na funkcionalan način
+
+Ovakve iteratore možemo da koristimo da bi izračunali sve elemente Fibonačijevog niza, od prvog, pa do `n`-tog. Ovakav način implementacije Fibonačijevog niza je najbliži funkcionalnom programiranju, iako nije greška implementirati ga na bilo koji drugi način, sve dok se koriste koncepti funkcionalnog programiranja.
+
+```python
+from itertools import islice
+
+# Funkcija koja kreira generator
+# Vraća vrednost samo kada je potrebna
+def iterate(func, param):
+    while True:
+        yield param
+        param = func(param)
+
+# Funkcija koja računa sledeći
+# broj na osnovu prethodna 2
+def next_fibonacci(pair):
+    x, y = pair
+    return (y, x + y)
+
+# Definiše sve Fibonačijeve
+# brojeve do ∞ (Lazy)
+def fibonacci_numbers():
+    return (x for x, _ in iterate(next_fibonacci, (0, 1)))
+
+# islice preuzima samo brojeve od 0-tog indeksa do 10
+list(islice(fibonacci_numbers(), 0, 10))
+```
+
+|Output>|`[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]`|
+|-------|:-------:|
+
 ##
 
 |Navigacija|
