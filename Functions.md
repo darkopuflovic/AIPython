@@ -219,7 +219,7 @@ Ovo je modul koji sadrži funkcije za kreiranje iteratorskih podataka. Postoje 3
 2. Iteratori koji se prekidaju kada se prva kolekcija završi
 3. Kombinatorički operatori
 
-- U prvu kategoriju spadaju funkcije `count`, `cycle` i funkcija `repeat`.
+U prvu kategoriju spadaju funkcije `count`, `cycle` i funkcija `repeat`.
 
 `count` funkcija se koristi za kreiranje iteracije koja počinje brojem koji je prvi argument funkcije i kreira beskonačno elemenata sa korakom koji je drugi argument.
 `cycle` se razlikuje po tome što prihvata kolekciju elemenata, a vraća po jedan od njih. Kada dođe do kraja kolekcije, počinje od početka, zauvek.
