@@ -212,6 +212,53 @@ print(reduce(operator.add, range(1, 11)))
 |Output>|`55`|
 |-------|:-------------:|
 
+## itertools modul
+
+Ovo je modul koji sadrži funkcije za kreiranje iteratorskih podataka. Postoje 3 kategorije ovih iteratora:
+1. Beskonačni operatori
+2. Iteratori koji se prekidaju kada se prva kolekcija završi
+3. Kombinatorički operatori
+
+- U prvu kategoriju spadaju funkcije `count`, `cycle` i funkcija `repeat`.
+
+`count` funkcija se koristi za kreiranje iteracije koja počinje brojem koji je prvi argument funkcije i kreira beskonačno elemenata sa korakom koji je drugi argument.
+`cycle` se razlikuje po tome što prihvata kolekciju elemenata, a vraća po jedan od njih. Kada dođe do kraja kolekcije, počinje od početka, zauvek.
+`repeat` je slična `cycle` funkciji. Razlika je u tome da prihvata argument bilo kog tipa, a ima i drugi 
+argument, kojim je ovu kolekciju moguće ograničiti na konačan broj ponavljanja.
+
+```python
+from itertools import *
+
+co = count(1, 2)
+cy = cycle([1, 2, 3])
+rp = repeat(10, 10)
+
+i = 0
+
+for c in co:
+    i += 1
+    if i >= 10:
+        print(c, end = ".\n")
+        break
+    print (c, end = ", ")
+
+i = 0
+
+for c in cy:
+    i += 1
+    if i >= 10:
+        print(c, end = ".\n")
+        break
+    print (c, end = ", ")
+
+print(list(rp))
+```
+
+|Output>|`1, 3, 5, 7, 9, 11, 13, 15, 17, 19.`|
+|-------|:-------------:|
+|       |`1, 2, 3, 1, 2, 3, 1, 2, 3, 1.`|
+|       |`[10, 10, 10, 10, 10, 10, 10, 10, 10, 10]`|
+
 ##
 
 |Navigacija|
