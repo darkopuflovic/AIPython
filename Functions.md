@@ -171,9 +171,8 @@ proba(20, 30, 40)
 proba(20)
 ```
 
-|       |         |
-|-------|:-------:|
 |Output>|`10, 20, 30, 40.`|
+|-------|:----------------|
 |       |`10, 20, 30, 40.`|
 |       |`10, 20, 30, 40.`|
 |       |`TypeError: metoda() missing 2 required positional arguments: 'r' and 's'`|
