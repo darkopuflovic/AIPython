@@ -179,6 +179,39 @@ proba(20)
 
 Kod poslednjeg primera možemo da primetimo i razliku između ove funkcije i `curry`. Ukoliko nemamo dovoljno argumenata, funkcija `partial` nam ne vraća funkciju, koja može da prihvati još argumenata, već nam vraća grešku, koja nam sugeriše da ti argumenti nedostaju.
 
+## operator modul
+
+Ovaj modul sadrži sve matematičke i logičke operatore, kao i operatore `setitem`, `delitem` i `getitem`, koji se koriste za manipulaciju slice objektima (ovi objekti se kreiraju korišćenjem `slice` funkcije). Ovi operatori su implementirani kao funkcije, pa ih je moguće koristiti na taj način. Moguće ih je pozivati sa odgovarajućim argumentima, ali, što je nama još bitnije, prosleđivati drugim funkcijama kada se funkcija očekuje kao argument.
+
+```python
+import operator
+
+print(operator.add(10, 20))
+
+tail = slice(1, None)
+print(operator.getitem(range(1, 11), tail))
+
+print(operator.getitem(list(range(1, 11)), tail))
+
+print(list(range(1, 11))[tail])
+```
+
+|Output>|`30`|
+|-------|:-------------|
+|       |`range(2, 11)`|
+|       |`[2, 3, 4, 5, 6, 7, 8, 9, 10]`|
+|       |`[2, 3, 4, 5, 6, 7, 8, 9, 10]`|
+
+```python
+from functools import reduce
+import operator
+
+print(reduce(operator.add, range(1, 11)))
+```
+
+|Output>|`55`|
+|-------|:-------------:|
+
 ##
 
 |Navigacija|
