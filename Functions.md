@@ -8,14 +8,14 @@ Metode min i max su slične metodama istog naziva u drugim programskim jezicima.
 min(5, 1, 6, 3, 5, 1, 9)
 ```
 
-|Output>|`'1'`|
+|Output>|`1`|
 |-------|:-------:|
 
 ```python
 max(5, 1, 6, 3, 5, 1, 9)
 ```
 
-|Output>|`'9'`|
+|Output>|`9`|
 |-------|:-------:|
 
 Kao što smo ranije videli, Python ima još jednu specifičnost, a to je `starred expression`. Na ovaj način je moguće bilo koju kolekciju proslediti kao listu argumenata ovim funkcijama, iako to nije neophodno, zato što argument može da bude i sama lista.
