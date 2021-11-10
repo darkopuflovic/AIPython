@@ -78,7 +78,7 @@ print(next(listIter), end = " ")
 |[Lambda izrazi](Lambda.md)|
 |[Lazy evaluation](Lazy.md)|
 |[Curry, Uncurry, Compose](Curry.md)|
-|[Python funkcije (min, max, map, filter, zip)](Functions.md)|
+|[Python funkcije (min, max, map, filter, zip, moduli)](Functions.md)|
 |[Biblioteke](Library.md)|
 |[Comprehensions](Comprehensions.md)|
 |[Regularni izrazi](RegularExpressions.md)|
