@@ -2,7 +2,7 @@
 
 ## min, max
 
-Metode min i max su slične metodama istog naziva u drugim programskim jezicima. One se koriste za izračunavanje minimuma i maksimuma `n` brojeva. To je i razlika između programskog jezika Python i većine drugih jezika. Broj parametara ovih funkcija nije ograničen.
+Metode min i max su slične metodama istog naziva u drugim programskim jezicima. One se koriste za izračunavanje minimuma i maksimuma `n` brojeva. To je i razlika između programskog jezika Python i većine drugih jezika. Broj argumenata ovih funkcija nije ograničen.
 
 ```python
 min(5, 1, 6, 3, 5, 1, 9)
@@ -258,6 +258,231 @@ print(list(rp))
 |-------|:-------------|
 |       |`1, 2, 3, 1, 2, 3, 1, 2, 3, 1.`|
 |       |`[10, 10, 10, 10, 10, 10, 10, 10, 10, 10]`|
+
+Pošto se radi o beskonačnim iteratorima, nemamo mogućnost da prekinemo njihovo izvršenje. Ukoliko bi bilo koji iterator iz ove kategorije, osim rezultata `repeat` funkcije, koja ima drugi argument, kojim se kolekcija kreira do određenog elementa, pretvorili u listu, aplikacija bi se zaustavila i pokušala da kreira beskonačnu kolekciju. To naravno nije dobro rešenje. Pošto se radi o iteratorima koji su osnova za ostale `iterable` tipove koje smo ranije pominjali, takođe ne možemo da koristimo indeksiranje ili `slice` funkciju. Zato je jedino rešenje da prekinemo sa korišćenjem iteratora (`for petlja` u ovom slučaju, mada smo mogli da koristimo i sami `next` funkciju nad samim iteratorom), a samim tim, novi elementi se dalje neće kreirati.
+
+Iteratori koji se prekiraju kada se prva kolekcija završi
+
+Funkcije koje spadaju u ovu kategoriju iteratora mogu da se koriste za različite operacije nad kolekcijama podataka. Obradićemo najbitnije funkcije iz ove kategorije.
+
+- `accumulate` funkcija
+
+```python
+from itertools import *
+
+print(list(accumulate(range(1, 11), lambda x, y: x * y, initial = 1)))
+```
+
+|Output>|`[1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800]`|
+|-------|:-------------|
+
+Ova funkcija je slična `reduce` funkciji, ali za razliku od nje, ona vraća kolekciju svih elemenata kolekcije koja je obrađena. Na odgovarajućim mestima u ovoj kolekciji se nalaze vrednosti koje su izračunate u koraku koji tom indeksu odgovara.
+
+- `chain` funkcija
+
+```python
+from itertools import *
+
+print(list(chain("ABC", "DEF")))
+```
+
+|Output>|`['A', 'B', 'C', 'D', 'E', 'F']`|
+|-------|:-------------|
+
+`chain` funkcija prihvata dve kolekcije (u ovom slučaju kolekcije karaktera, string), koje objedinjuje u jednu. Prva kolekcija se nalazi na prvim indeksima u rezultujućoj kolekciji, dok se na ostala mesta upisuje druga kolekcija.
+
+- `compress` funkcija
+
+```python
+from itertools import *
+
+print(list(compress("ABCDEF", [1, 1, 0, 1, 0, 1])))
+```
+
+|Output>|`['A', 'B', 'D', 'F']`|
+|-------|:-------------|
+
+Ova funkcija može da nam pomogne da iz kolekcije izvučemo samo odgovarajuće elemente, ukoliko znamo na kojim se pozicijama nalaze. Drugi argument je kolekcija koja se tretira kao kolekcija logičkih vrednosti. Elementi koji se prepisuju iz ulazne kolekcije su oni koji na istom indeksu u ovoj kolekciji imaju vrednost koju Python tretira kao `True` vrednost.
+
+- `dropwhile` funkcija
+
+```python
+from itertools import *
+
+print(list(dropwhile(lambda x: x < 5 or x > 7, range(1, 11))))
+```
+
+|Output>|`[5, 6, 7, 8, 9, 10]`|
+|-------|:-------------|
+
+Funkcija, koja se prosleđuje kao prvi argument, treba da vraća `bool` tip podataka. Svi elementi do prve `False` vrednosti ove funkcije će biti izbačeni iz rezultujuće kolekcije.
+
+- `filterfalse` funkcija
+
+```python
+from itertools import *
+
+print(list(filterfalse(lambda x: x < 5 or x > 7, range(1, 11))))
+```
+
+|Output>|`[5, 6, 7]`|
+|-------|:-------------|
+
+Za razliku od prethodne funkcije, ova funkcija u rezultujuću kolekciju smešta samo elemente za koje je prosleđena funkcija vratila vrednost `False`.
+
+- `groupby` funkcija
+
+```python
+from itertools import *
+
+for k, g in groupby("AAAABBBCCDAABBB"):
+    print((k, len(list(g))), end = " ")
+
+for k, g in groupby("AABBCC"):
+    print((k, list(g)), end = " ")
+```
+
+|Output>|`('A', 4) ('B', 3) ('C', 2) ('D', 1) ('A', 2) ('B', 3)`|
+|-------|:-------------|
+|       |`('A', ['A', 'A']) ('B', ['B', 'B']) ('C', ['C', 'C'])`|
+
+Funkcija `groupby` grupiše elemente kolekcije koja je prosleđena, kreirajući specijalnu kolekciju, nalik na rečnik. Ukoliko ovu kolekciju posmatramo kao `tuple`, možemo da je "otpakujemo" korišćenjem sintakse u primeru iznad.
+
+- `islice` funkcija
+
+```python
+from itertools import *
+
+print(list(islice("ABCDEF", 1, 4, 2)))  # from, count, step
+```
+
+|Output>|`['B', 'D']`|
+|-------|:-------------|
+
+Funkcija koja je slična `slice` funkciji. Način korišćenja je drugačiji. Ova funkcija prihvata samu kolekciju, indeks od koga rezultujuća kolekcija treba da počne, broj elemenata (ukoliko ih ima tolko) koje treba preuzeti, kao i preskok.
+
+- `pairwise` funkcija
+
+```python
+from itertools import *
+
+print(list(pairwise("ABCDE")))
+```
+
+|Output>|`[('A', 'B'), ('B', 'C'), ('C', 'D'), ('D', 'E')]`|
+|-------|:-------------|
+
+`pairwise` funkciju možemo da koristimo kada nam je potrebno da pronađemo svaki par susednih elemenata u nekoj kolekciji podataka.
+
+- `starmap` funkcija
+
+```python
+from itertools import *
+
+print(list(starmap(lambda x, y: x ** y, pairwise(range(1, 5)))))
+```
+
+|Output>|`[1, 8, 81]`|
+|-------|:-------------|
+
+`starmap` nam omogućava da nad kolekcijom `tuple` podataka izvršimo bilo koju operaciju, koju možemo da prosledimo kao prvi argument funkcije.
+
+- `takewhile` funkcija
+
+```python
+from itertools import *
+
+print(list(takewhile(lambda x: x < 50, count(10, 5))))
+```
+
+|Output>|`[10, 15, 20, 25, 30, 35, 40, 45]`|
+|-------|:-------------|
+
+Funkcija `takewhile` je slična funkcijama `dropwhile` i `filterfalse`. Za razliku od njih, ona preuzima elemente iz kolekcije (iteracije) koji ispunjavaju uslov iz funkcije koja se prosleđuje.
+
+Takođe na ovom primeru možemo da vidimo još jedan način prekidanja beskonačnih kolekcija, kao što je to kolekcija koju kreira `count` funkcija.
+
+- `tee` funkcija
+
+```python
+from itertools import *
+
+for t in tee(range(1, 11), 2):
+    print(list(t))
+```
+
+|Output>|`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`|
+|-------|:-------------|
+|       ||`[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`|
+
+Ukoliko imamo iteraciju, koju želimo da replikujemo u `n` primeraka, `tee` je funkcija koja to može da nam uradi. Svaka od iteracija koje ova funkcija vraća je duplikat prosleđene, ali one nisu zavisne. To znači da ukoliko prvu kolekciju pomerimo za jedno mesto, druga će još uvek biti na početnom elementu.
+
+- `zip_longest` funkcija
+
+```python
+from itertools import *
+
+print(list(zip_longest('1234', [1, 2], fillvalue='-')))
+```
+
+|Output>|`[('1', 1), ('2', 2), ('3', '-'), ('4', '-')]`|
+|-------|:-------------|
+
+Ova funkcija je slična `zip` funkciji. Razlika je u tome što `zip` funkcija prekida spajanje elemenata kada bilo koja od dve kolekcije nema više elemenata. `zip_longest` se razlikuje, zato što joj je moguće proslediti argument `fillvalue` koji se koristi da na nedostajuće pozicije upisuše tu vrednost.
+
+Kombinatorički iteratori
+
+- `product` funkcija
+
+```python
+from itertools import *
+
+print(list(product("AB", "CD")))
+```
+
+|Output>|`[('A', 'C'), ('A', 'D'), ('B', 'C'), ('B', 'D')]`|
+|-------|:-------------|
+
+Dekartov proizvod kolekcije koja se tretira kao skup.
+
+- `permutations` funkcija
+
+```python
+from itertools import *
+
+print(list(permutations("ABC", 2)))
+```
+
+|Output>|`[('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'C'), ('C', 'A'), ('C', 'B')]`|
+|-------|:-------------|
+
+Kao što i sam naziv govori, ovo je funkcija koja određuje sve permutacije nad skupom koji je prosleđen. Permutacije su dužine koja je prosleđena kao drugi argument.
+
+- `combinations` funkcija
+
+```python
+from itertools import *
+
+print(list(combinations("ABCD", 2)))
+```
+
+|Output>|`[('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'C'), ('B', 'D'), ('C', 'D')]`|
+|-------|:-------------|
+
+Funkcija `combinations` vraća sve kombinacije skupa koji je prosleđen kao prvi argument. Drugi argument je dužina kombinacija. Svaka kolekcija koja se prosledi kombinatoričkim funkcijama se tretira kao skup.
+
+- `combinations_with_replacement` funkcija
+
+```python
+from itertools import *
+
+print(list(combinations_with_replacement("ABC", 2)))
+```
+
+|Output>|`[('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'B'), ('B', 'C'), ('C', 'C')]`|
+|-------|:-------------|
+
+Poslednja funkcija u ovoj kategoriji je `combinations_with_replacement`. Ona nam vraća sve kombinacije dužine koja je prosleđena kao drugi argument, nad kolekcijom koja predstavlja prvi argument, `sa ponavljanjima`.
 
 ##
 
