@@ -74,6 +74,46 @@ Druga vrsta podele rekurzije je po broju rekurzivnih poziva u funkciji i može b
    - Rekurzija kod koje se 2 ili više funkcija naizmenično pozivaju jedna iz druge
    - Primer: Funkcija za obilazak datoteka u direktorijumu (jedna funkcija obilazi hijerarhiju direktorijuma, a druga fajlove u njima)...
 
+Uključivanje biblioteka možete naći na [Biblioteke](Library.md)
+
+Ukoliko uključimo biblioteku `tail-recursive` sa `Python Package Index`-a, možemo da koristimo funkciju `tail_recursive` iz ove biblioteke da bi simulirali repnu rekurziju u programskom jeziku Python.
+
+```python
+from tail_recursive import tail_recursive
+
+@tail_recursive
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial.tail_call(n - 1)   # Modifikacija koju je neophodno izvršiti
+
+# factorial funkcija je napisana korišćenjem rekurzije glave, ali
+# i dalje ne dolazi do stack overflow exception-a
+print(factorial(1000))
+```
+
+|Output>|`402387260077093773543702433923003985719374864...`|
+|-------|:-------:|
+
+Ukoliko želimo da koristimo rekurziju glave, svakako neće dolaziti do `stack overflow exception`-a kao i u prethodnom primeru, ali će kod biti nešto brži, zato što ima manje operacija koje treba izvršiti (množenje).
+
+```python
+from tail_recursive import tail_recursive
+
+@tail_recursive
+def factorialRR(n, acc = 1):
+    if n == 0:
+        return acc
+    return factorialRR.tail_call(n - 1, acc * n)
+
+print(factorialRR(1000))
+```
+
+|Output>|`402387260077093773543702433923003985719374864...`|
+|-------|:-------:|
+
+Rezultat je naravno isti.
+
 Funkcije prve klase su podržane u programskom jeziku Python. Sve funkcije su funkcije prve klase. To podrazumeva:
  1. Da je moguće slanje funkcija kao argumenata u druge funkcije
  2. Vraćanje funkcije kao rezultata iz druge funkcije je takođe moguće
