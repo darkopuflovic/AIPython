@@ -63,7 +63,7 @@ stepen(10, 2)
 |Output>|`100.0`|
 |-------|:-------:|
 
-Pored svih pobrojanih načina, postoje i relativne import naredbe, (from . import funkcija), međutim njih nećemo obrađivati na ovom kursu. One mogu da budu korisne kada imamo projekat koji u sebi sadrži fajlove koje želimo da uključimo.
+Pored svih pobrojanih načina, postoje i relativne import naredbe, (`from . import funkcija`), međutim njih nećemo obrađivati na ovom kursu. One mogu da budu korisne kada imamo projekat koji u sebi sadrži fajlove koje želimo da uključimo.
 
 Biblioteke koje se nalaze na `Python Package Index`-u je moguće uključiti u projekat korišćenjem `Package Installer for Python`-a (`pip` komanda). Ova komanda se koristi iz terminala po izboru (npr. Command Prompt).
 
