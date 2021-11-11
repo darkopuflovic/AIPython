@@ -44,7 +44,7 @@ match (prvi, drugi):
 ```
 
 |Input> |`PD`|
-|-------|:-------|
+|:------|:-------|
 |Output>|`Dobrodošli, Petar D.`|
 
 Na malo složenijem primeru iznad, možemo da vidimo još neke mogućnosti koje nam pattern matching u Python programskom jeziku nudi.
