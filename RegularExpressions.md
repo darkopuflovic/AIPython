@@ -118,8 +118,11 @@ re.findall("(.+)", "123ABCD1234\nNOVA LINIJA", re.IGNORECASE | re.DOTALL)
 |-------|:-------|
 
 Više o regularnim izrazima možete da saznate na sledećim linkovima:
+
 [Regexr](https://regexr.com/)
+
 [Regex101](https://regex101.com/)
+
 [PythonRE](https://docs.python.org/3/library/re.html)
 
 ##
