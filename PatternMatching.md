@@ -19,7 +19,7 @@ match 'a':
 ```
 
 |Output>|`Default`|
-|-------|:-------:|
+|-------|:-------|
 
 U prethodnom primeru slovo `'a'` pokušavamo da preklopimo sa ukupno četiri `case` šablona. Prvi šablon se sastoji od preklapanja više karaktera (`|` se koristi kao logički operator `or`). Pošto se traže velika slova `'A'`, `'B'` ili `'C'`, naše slovo `'a'` neće biti preklopljeno ovim `case`-om. Još možemo da vidimo korišćenje ključne reči `as`. Ona nam omogućava da ukoliko imamo više preklapanja, kao u ovom slučaju, vrednost koju smo preklopili smestimo u promenjivu `slovo`. Na taj način možemo da je koristimo dalje u kodu (do kraja `case` naredbe, do kada i važi).
 
@@ -44,7 +44,7 @@ match (prvi, drugi):
 ```
 
 |Input> |`PD`|
-|-------|:-------:|
+|-------|:-------|
 |Output>|`Dobrodošli, Petar D.`|
 
 Na malo složenijem primeru iznad, možemo da vidimo još neke mogućnosti koje nam pattern matching u Python programskom jeziku nudi.
