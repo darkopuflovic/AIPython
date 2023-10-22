@@ -369,6 +369,9 @@ Iteratori koji se prekiraju kada se prva kolekcija završi
 Funkcije koje spadaju u ovu kategoriju iteratora mogu da se koriste za različite operacije nad kolekcijama podataka. Obradićemo najbitnije funkcije iz ove kategorije.
 
 - `accumulate` funkcija
+```
+itertools.accumulate(iterable[, func, initial=None]) -> accumulate
+```
 
 ```python
 from itertools import *
@@ -382,6 +385,9 @@ print(list(accumulate(range(1, 11), lambda x, y: x * y, initial = 1)))
 Ova funkcija je slična `reduce` funkciji, ali za razliku od nje, ona vraća kolekciju svih elemenata kolekcije koja je obrađena. Na odgovarajućim mestima u ovoj kolekciji se nalaze vrednosti koje su izračunate u koraku koji tom indeksu odgovara.
 
 - `chain` funkcija
+```
+itertools.chain(*iterables) -> chain
+```
 
 ```python
 from itertools import *
@@ -395,6 +401,9 @@ print(list(chain("ABC", "DEF")))
 `chain` funkcija prihvata dve kolekcije (u ovom slučaju kolekcije karaktera, string), koje objedinjuje u jednu. Prva kolekcija se nalazi na prvim indeksima u rezultujućoj kolekciji, dok se na ostala mesta upisuje druga kolekcija.
 
 - `compress` funkcija
+```
+itertools.compress(data, selectors) -> compress
+```
 
 ```python
 from itertools import *
@@ -408,6 +417,9 @@ print(list(compress("ABCDEF", [1, 1, 0, 1, 0, 1])))
 Ova funkcija može da nam pomogne da iz kolekcije izvučemo samo odgovarajuće elemente, ukoliko znamo na kojim se pozicijama nalaze. Drugi argument je kolekcija koja se tretira kao kolekcija logičkih vrednosti. Elementi koji se prepisuju iz ulazne kolekcije su oni koji na istom indeksu u ovoj kolekciji imaju vrednost koju Python tretira kao `True` vrednost.
 
 - `dropwhile` funkcija
+```
+itertools.dropwhile(predicate, iterable) -> dropwhile
+```
 
 ```python
 from itertools import *
@@ -421,6 +433,9 @@ print(list(dropwhile(lambda x: x < 5 or x > 7, range(1, 11))))
 Funkcija, koja se prosleđuje kao prvi argument, treba da vraća `bool` tip podataka. Svi elementi do prve `False` vrednosti ove funkcije će biti izbačeni iz rezultujuće kolekcije.
 
 - `filterfalse` funkcija
+```
+itertools.filterfalse(predicate, iterable) -> filterfalse
+```
 
 ```python
 from itertools import *
@@ -434,6 +449,9 @@ print(list(filterfalse(lambda x: x < 5 or x > 7, range(1, 11))))
 Za razliku od prethodne funkcije, ova funkcija u rezultujuću kolekciju smešta samo elemente za koje je prosleđena funkcija vratila vrednost `False`.
 
 - `groupby` funkcija
+```
+itertools.groupby(iterable, key=None) -> groupby
+```
 
 ```python
 from itertools import *
@@ -452,6 +470,10 @@ for k, g in groupby("AABBCC"):
 Funkcija `groupby` grupiše elemente kolekcije koja je prosleđena, kreirajući specijalnu kolekciju, nalik na rečnik. Ukoliko ovu kolekciju posmatramo kao `tuple`, možemo da je "otpakujemo" korišćenjem sintakse u primeru iznad.
 
 - `islice` funkcija
+```
+itertools.islice(iterable, stop) -> islice
+itertools.islice(iterable, start, stop[, step]) -> islice
+```
 
 ```python
 from itertools import *
@@ -465,6 +487,9 @@ print(list(islice("ABCDEF", 1, 4, 2)))  # from, count, step
 Funkcija koja je slična `slice` funkciji. Način korišćenja je drugačiji. Ova funkcija prihvata samu kolekciju, indeks od koga rezultujuća kolekcija treba da počne, broj elemenata (ukoliko ih ima tolko) koje treba preuzeti, kao i preskok.
 
 - `pairwise` funkcija
+```
+itertools.pairwise(iterable) -> pairwise
+```
 
 ```python
 from itertools import *
@@ -478,6 +503,9 @@ print(list(pairwise("ABCDE")))
 `pairwise` funkciju možemo da koristimo kada nam je potrebno da pronađemo svaki par susednih elemenata u nekoj kolekciji podataka.
 
 - `starmap` funkcija
+```
+itertools.starmap(function, iterable) -> starmap
+```
 
 ```python
 from itertools import *
@@ -491,6 +519,9 @@ print(list(starmap(lambda x, y: x ** y, pairwise(range(1, 5)))))
 `starmap` nam omogućava da nad kolekcijom `tuple` podataka izvršimo bilo koju operaciju, koju možemo da prosledimo kao prvi argument funkcije.
 
 - `takewhile` funkcija
+```
+itertools.takewhile(predicate, iterable) -> takewhile
+```
 
 ```python
 from itertools import *
@@ -506,6 +537,9 @@ Funkcija `takewhile` je slična funkcijama `dropwhile` i `filterfalse`. Za razli
 Takođe na ovom primeru možemo da vidimo još jedan način prekidanja beskonačnih kolekcija, kao što je to kolekcija koju kreira `count` funkcija.
 
 - `tee` funkcija
+```
+itertools.tee(iterable, n=2) -> tee
+```
 
 ```python
 from itertools import *
@@ -521,6 +555,9 @@ for t in tee(range(1, 11), 2):
 Ukoliko imamo iteraciju, koju želimo da replikujemo u `n` primeraka, `tee` je funkcija koja to može da nam uradi. Svaka od iteracija koje ova funkcija vraća je duplikat prosleđene, ali one nisu zavisne. To znači da ukoliko prvu kolekciju pomerimo za jedno mesto, druga će još uvek biti na početnom elementu.
 
 - `zip_longest` funkcija
+```
+itertools.zip_longest(*iterables, fillvalue=None) -> zip_longest
+```
 
 ```python
 from itertools import *
@@ -536,6 +573,9 @@ Ova funkcija je slična `zip` funkciji. Razlika je u tome što `zip` funkcija pr
 Kombinatorički iteratori
 
 - `product` funkcija
+```
+itertools.product(*iterables, repeat=1) -> product
+```
 
 ```python
 from itertools import *
@@ -549,6 +589,9 @@ print(list(product("AB", "CD")))
 Dekartov proizvod kolekcije koja se tretira kao skup.
 
 - `permutations` funkcija
+```
+itertools.permutations(iterable, r=None) -> permutations
+```
 
 ```python
 from itertools import *
@@ -562,6 +605,9 @@ print(list(permutations("ABC", 2)))
 Kao što i sam naziv govori, ovo je funkcija koja određuje sve permutacije nad skupom koji je prosleđen. Permutacije su dužine koja je prosleđena kao drugi argument.
 
 - `combinations` funkcija
+```
+itertools.combinations(iterable, r) -> combinations
+```
 
 ```python
 from itertools import *
@@ -575,6 +621,9 @@ print(list(combinations("ABCD", 2)))
 Funkcija `combinations` vraća sve kombinacije skupa koji je prosleđen kao prvi argument. Drugi argument je dužina kombinacija. Svaka kolekcija koja se prosledi kombinatoričkim funkcijama se tretira kao skup.
 
 - `combinations_with_replacement` funkcija
+```
+itertools.combinations_with_replacement(iterable, r) -> combinations with replacement
+```
 
 ```python
 from itertools import *
