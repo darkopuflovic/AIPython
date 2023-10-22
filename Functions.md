@@ -59,11 +59,11 @@ max(["1234","12","123"],key=len)
 |Output>|`'1234'`|
 |-------|:-------:|
 
+## sorted, sort
+
 ```
 sorted(iterable, [key=None, reverse=False]) -> iterable
 ```
-
-## sorted, sort
 
 Funkcija `sorted` prihvata kolekciju podataka, sortira je i vraća novu listu sortiranu u rastući redosled. Kao i kod funkcija `min` i `max`, moguće je koristiti `key` parametar koji prihvata funkciju sa jednim parametrom. Takođe je moguće proslediti i `reverse` parametar, koji, ukoliko mu je vrednost `True` sortira u opadajući redosled.
 Ova metoda je funkcionalna, zato što ne menja prethodnu kolekciju. Postoji i nefukcionalna metoda, `sort`. Potpis joj je identičan, ali se poziva nad objektom koji treba sortirati.
@@ -101,7 +101,7 @@ a # vrednost promenjive a je izmenjena
 zip(iter1 [, iter2 [...]]) -> zip object
 ```
 
-Funkcija `zip` se koristi za spajanje dve kolekcije. Kolekcije se prosleđuju kroz argumente, a funkcija koja obavlja ovo spajanje se ne prosleđuje, već je uvek ista. Svaki element prve kolekcije, sa elementom druge kolekcije na istom indeksu kreira jedan `tuple` tip u rezultujućem nizu.
+Funkcija `zip` se koristi za spajanje jedne ili više kolekcija. Kolekcije se prosleđuju kroz argumente, a funkcija koja obavlja ovo spajanje se ne prosleđuje, već je uvek ista. Svaki element prve kolekcije, sa elementom druge kolekcije na istom indeksu kreira jedan `tuple` tip u rezultujućem nizu.
 
 Treba napomenuti da ova funkcija ne vrši spajanje elemenata niza koji nemaju odgovarajući par u drugom nizu. Spajanje se vrši do kraće dimenzije oba niza.
 
@@ -137,6 +137,11 @@ print(f"Minimum je: {min(*lista)}, dok je maksimum: {max(*lista)}")
 |       |`Minimum je: 4, dok je maksimum: 90`|
 
 ## map, filter
+
+```
+map(function, sequence[, sequence, ...]) -> map object
+filter(function or None, iterable) -> filter object
+```
 
 Specijalne funkcije, kao što su `map` i `filter` prihvataju kao argument funkciju, kao i listu koju je potrebno obraditi. Ovakav način rada sa kolekcijama je jako intuitivan i jednostavan. Dovoljno je o svakom elementu niza razmišljati kao o jedinom elementu koji je potrebno obraditi korišćenjem funkcije koju pišemo i šaljemo kao argument. Obrada niza se prepušta specijalnoj funkciji, koja našu funkciju izvršava nad svakim elementom niza.
 
@@ -175,7 +180,7 @@ Kao i u prethodnom slučaju, funkcija `filter` ima povratnu vrednost tipa `filte
 ## Funkcije iz Python modula
 Uključivanje biblioteka: [Biblioteke](Library.md)
 
-## Modul functools
+## Modul **functools**
 
 Postoji više modula koji sadrže funkcije za rad sa kolekcijama. Mi ćemo pomenuti tri ovakva modula. Jedan od njih je `functools`.
 
@@ -185,6 +190,10 @@ Kao što i sam naziv govori, ovo je modul funkcionalnih operatora. Postoji nekol
 3. partial
 
 ## reduce
+
+```
+functools.reduce(function, sequence[, initial])-> value
+```
 
 Ovo je funkcija koja se koristi da kolekciju elemenata, koji se prosleđuju kao argument transformiše, korišćenjem funkcije, koja se takođe prosleđuje u rezultat koji nije kolekcija. Funkcija, koja se šalje kao argument, prihvata u ovom slučaju dve vrednosti, a rezultat treba da bude primena operacije nad te dve vrednosti, koju želimo da primenimo nad celom kolekcijom.
 
@@ -231,6 +240,10 @@ Primere za ove dve funkcije možete da pogledate na stranici [Memoizacija](Memoi
 
 ## partial funkcija
 
+```
+functools.partial(func, *args, **keywords) -> partial
+```
+
 Kada smo govorili o funkcijama `curry, uncurry i compose`, koristili smo metodu `curry` koja nam je omogućavala da funkciju koja prihvata više argumenata transformišemo u funkciju koja vraća drugu funkciju, sve dok broj argumenata ne bude odgovarajući za poziv same funkcije, a tek onda je poziva i vraća vrednost.
 
 Funkcija `partial` koja se nalazi u modulu `functools` nam omogućava sličnu funkcionalnost. Prosleđivanje funkcije koju želimo da transformišemo se vrši korišćenjem prvog argumenta funkcije, a nakon njega može da sledi neograničen broj drugih argumenata, koji će se zapravo tretirati kao argumenti funkcije koju smo prosledili. Na ovaj način je moguće kreirati novu funkciju koja ima `n` manje argumenata, gde `n` može da bude i isti broj argumenata koje naša funkcija prihvata. U tom slučaju je pozivamo bez argumenata.
@@ -263,7 +276,7 @@ proba(20)
 
 Kod poslednjeg primera možemo da primetimo i razliku između ove funkcije i `curry`. Ukoliko nemamo dovoljno argumenata, funkcija `partial` nam ne vraća funkciju, koja može da prihvati još argumenata, već nam vraća grešku, koja nam sugeriše da ti argumenti nedostaju.
 
-## operator modul
+## Modul **operator**
 
 Ovaj modul sadrži sve matematičke i logičke operatore, kao i operatore `setitem`, `delitem` i `getitem`, koji se koriste za manipulaciju slice objektima (ovi objekti se kreiraju korišćenjem `slice` funkcije). Ovi operatori su implementirani kao funkcije, pa ih je moguće koristiti na taj način. Moguće ih je pozivati sa odgovarajućim argumentima, ali, što je nama još bitnije, prosleđivati drugim funkcijama kada se funkcija očekuje kao argument.
 
@@ -296,7 +309,7 @@ print(reduce(operator.add, range(1, 11)))
 |Output>|`55`|
 |-------|:-------------:|
 
-## itertools modul
+## Modul **itertools**
 
 Ovo je modul koji sadrži funkcije za kreiranje iteratorskih podataka. Postoje 3 kategorije ovih iteratora:
 1. Beskonačni operatori
@@ -304,6 +317,12 @@ Ovo je modul koji sadrži funkcije za kreiranje iteratorskih podataka. Postoje 3
 3. Kombinatorički operatori
 
 U prvu kategoriju spadaju funkcije `count`, `cycle` i funkcija `repeat`.
+
+```
+itertools.count(start=0, step=1) -> count iterator
+itertools.cycle(iterable) -> cycle iterator
+itertools.repeat(object[, times]) -> repeat iterator
+```
 
 `count` funkcija se koristi za kreiranje iteracije koja počinje brojem koji je prvi argument funkcije i kreira beskonačno elemenata sa korakom koji je drugi argument.
 `cycle` se razlikuje po tome što prihvata kolekciju elemenata, a vraća po jedan od njih. Kada dođe do kraja kolekcije, počinje od početka, zauvek.
