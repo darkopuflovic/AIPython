@@ -81,6 +81,13 @@ Na ovaj način je moguće izmeniti i komplikovaniji algoritam, ali modifikacije 
 
 [Uključivanje modula](Library.md)
 
+## Funkcije cache i lru_cache
+
+```
+functools.cache(user_function) -> lru cache wrapper
+functools.lru_cache(user_function) -> lru cache wrapper
+functools.lru_cache(maxsize=128, typed=False) -> lru cache wrapper
+```
 
 ```python
 from functools import cache
