@@ -3,7 +3,7 @@
 ## min, max
 
 ```
-**min**(iterable [, default=obj, key=func])-> value
+min(iterable [, default=obj, key=func])-> value
 min(a, b, *c [, key=func])-> value
 max(iterable [, default=obj, key=func])-> value
 max(a, b, *c [, key=func])-> value
