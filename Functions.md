@@ -2,6 +2,22 @@
 
 ## min, max
 
+### min(iterable [, default=obj, key=func])-> value
+### min(a, b, *c [, key=func])-> value
+### max(iterable [, default=obj, key=func])-> value
+### max(a, b, *c [, key=func])-> value
+
+|Parametar|Opis|
+|Iterable (obavezan)|Kolekcija podataka (string, tuple, lista...)|
+|default (opcioni)|Vrednost koju funkcija vraća ukoliko je kolekcija prazna|
+|key (opcioni)|Funkcija sa jednim parametrom|
+|-------|:-------:|
+
+|Parametar|Opis|
+|a, b, *c (obavezan)|Više parametara (najmanje 2) od kojih se traži minimum ili maksimum|
+|key (opcioni)|Funkcija sa jednim parametrom|
+|-------|:-------:|
+
 Metode min i max su slične metodama istog naziva u drugim programskim jezicima. One se koriste za izračunavanje minimuma i maksimuma `n` brojeva. To je i razlika između programskog jezika Python i većine drugih jezika. Broj argumenata ovih funkcija nije ograničen.
 
 ```python
