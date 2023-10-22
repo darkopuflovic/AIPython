@@ -13,12 +13,12 @@ max(a, b, *c [, key=func])-> value
 |---|---|---|
 |Iterable|<img alt="✅" src="Slike/True.svg" width="24" height="24">|Kolekcija podataka (string, tuple, lista...)|
 |default|<img alt="❌" src="Slike/False.svg" width="24" height="24">|Vrednost koju funkcija vraća ukoliko je kolekcija prazna|
-|key|<img alt="❌" src="Slike/False.svg" width="32" height="32">|Funkcija sa jednim parametrom|
+|key|<img alt="❌" src="Slike/False.svg" width="24" height="24">|Funkcija sa jednim parametrom|
 
 |Parametar|Obavezan|Opis|
 |---|--|---|
-|a, b, *c|<img alt="✅" src="Slike/True.svg" width="16" height="16">|Više parametara (najmanje 2) od kojih se traži minimum ili maksimum|
-|key|<img alt="❌" src="Slike/False.svg" width="16" height="16">|Funkcija sa jednim parametrom|
+|a, b, *c|<img alt="✅" src="Slike/True.svg" width="24" height="24">|Više parametara (najmanje 2) od kojih se traži minimum ili maksimum|
+|key|<img alt="❌" src="Slike/False.svg" width="24" height="24">|Funkcija sa jednim parametrom|
 
 Metode min i max su slične metodama istog naziva u drugim programskim jezicima. One se koriste za izračunavanje minimuma i maksimuma `n` brojeva. To je i razlika između programskog jezika Python i većine drugih jezika. Broj argumenata ovih funkcija nije ograničen.
 
