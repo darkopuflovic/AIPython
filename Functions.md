@@ -59,6 +59,64 @@ max(["1234","12","123"],key=len)
 |Output>|`'1234'`|
 |-------|:-------:|
 
+```
+sorted(iterable, [key=None, reverse=False]) -> iterable
+```
+
+## sorted, sort
+
+Funkcija **sorted** prihvata kolekciju podataka, sortira je i vraća novu listu sortiranu u rastući redosled. Kao i kod funkcija min i max, moguće je koristiti *key* parametar koji prihvata funkciju sa jednim parametrom. Takođe je moguće proslediti i *reverse* parametar, koji, ukoliko mu je vrednost *True* sortira u opadajući redosled.
+Ova metoda je funkcionalna, zato što ne menja prethodnu kolekciju. Postoji i nefukcionalna metoda, **sort**. Potpis joj je identičan, ali se poziva nad objektom koji treba sortirati.
+
+```python
+sorted([(6,1),(3,3),(7,2),(2,5)],key=lambdax:x[1])
+```
+
+|Output>|`[(6, 1), (7, 2), (3, 3), (2, 5)]`|
+|-------|:-------:|
+
+```python
+sorted([1,2,3,4,5],reverse=True)
+```
+
+|Output>|`[5, 4, 3, 2, 1]`|
+|-------|:-------:|
+
+```python
+sorted(("Jedan","Dva","Tri","Četiri"),key=len)
+```
+
+|Output>|`['Dva', 'Tri', 'Jedan', 'Četiri']`|
+|-------|:-------:|
+
+```python
+a = [(1,4),(4,2,6),(3,5)]
+a.sort(key=lambdax:x[1], reverse=True)
+a # vrednost promenjive a je izmenjena
+```
+
+## zip
+
+Funkcija `zip` se koristi za spajanje dve kolekcije. Kolekcije se prosleđuju kroz argumente, a funkcija koja obavlja ovo spajanje se ne prosleđuje, već je uvek ista. Svaki element prve kolekcije, sa elementom druge kolekcije na istom indeksu kreira jedan `tuple` tip u rezultujućem nizu.
+
+Treba napomenuti da ova funkcija ne vrši spajanje elemenata niza koji nemaju odgovarajući par u drugom nizu. Spajanje se vrši do kraće dimenzije oba niza.
+
+<p align="center">
+  <img src="Slike/Zip.png" />
+</p>
+
+```python
+list(zip([1, 2, 3], ["1", "2", "3"]))
+```
+
+|Output>|`[(1, '1'), (2, '2'), (3, '3')]`|
+|-------|:-------:|
+
+Povratni tip ove funkcije je `zip` iteracija, pa je neophodno, kao i u prethodnim primerima kastovati u listu da bi bila prikazana.
+
+|Output>|`[(3, 5), (1, 4), (4, 2, 6)]`|
+|-------|:-------:|
+
 Kao što smo ranije videli, Python ima još jednu specifičnost, a to je `starred expression`. Na ovaj način je moguće bilo koju kolekciju proslediti kao listu argumenata ovim funkcijama, iako to nije neophodno, zato što argument može da bude i sama lista.
 
 ```python
@@ -109,25 +167,6 @@ list(filter(lambda x: not x % 2, range(1, 10)))
 |-------|:-------:|
 
 Kao i u prethodnom slučaju, funkcija `filter` ima povratnu vrednost tipa `filter`. Ovaj tip je jako sličan tipu `map` i takođe je iteracija. Konverzija u listu se vrši na isti način kao i u prethodnom primeru.
-
-## zip
-
-Funkcija `zip` se koristi za spajanje dve kolekcije. Kolekcije se prosleđuju kroz argumente, a funkcija koja obavlja ovo spajanje se ne prosleđuje, već je uvek ista. Svaki element prve kolekcije, sa elementom druge kolekcije na istom indeksu kreira jedan `tuple` tip u rezultujućem nizu.
-
-Treba napomenuti da ova funkcija ne vrši spajanje elemenata niza koji nemaju odgovarajući par u drugom nizu. Spajanje se vrši do kraće dimenzije oba niza.
-
-<p align="center">
-  <img src="Slike/Zip.png" />
-</p>
-
-```python
-list(zip([1, 2, 3], ["1", "2", "3"]))
-```
-
-|Output>|`[(1, '1'), (2, '2'), (3, '3')]`|
-|-------|:-------:|
-
-Povratni tip ove funkcije je `zip` iteracija, pa je neophodno, kao i u prethodnim primerima kastovati u listu da bi bila prikazana.
 
 ## Funkcije iz Python modula
 Uključivanje biblioteka: [Biblioteke](Library.md)
