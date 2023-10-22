@@ -65,7 +65,7 @@ max(["1234","12","123"],key=len)
 sorted(iterable, [key=None, reverse=False]) -> iterable
 ```
 
-Funkcija `sorted` prihvata kolekciju podataka, sortira je i vraća novu listu sortiranu u rastući redosled. Kao i kod funkcija `min` i `max`, moguće je koristiti `key` parametar koji prihvata funkciju sa jednim parametrom. Takođe je moguće proslediti i `reverse` parametar, koji, ukoliko mu je vrednost `True` sortira u opadajući redosled.
+Funkcija `sorted` prihvata kolekciju podataka, sortira je i vraća novu listu sortiranu u rastući redosled. Kao i kod funkcija `min` i `max`, moguće je koristiti `key` parametar čija vrednost treba da bude funkcija sa jednim parametrom. Takođe je moguće proslediti i `reverse` parametar, koji, ukoliko mu je vrednost `True` sortira u opadajući redosled.
 Ova metoda je funkcionalna, zato što ne menja prethodnu kolekciju. Postoji i nefukcionalna metoda, `sort`. Potpis joj je identičan, ali se poziva nad objektom koji treba sortirati.
 
 ```python
