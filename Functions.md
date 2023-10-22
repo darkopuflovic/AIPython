@@ -11,7 +11,7 @@ max(a, b, *c [, key=func])-> value
 
 |Parametar|Obavezan|Opis|
 |---|---|---|
-|Iterable|<img alt="✅" src="Slike/True.svg" width="16" height="16">|Kolekcija podataka (string, tuple, lista...)|
+|Iterable|<img alt="✅" src="Slike/True.svg" style="vertical-align: middle" width="16" height="16">|Kolekcija podataka (string, tuple, lista...)|
 |default|<img alt="❌" src="Slike/False.svg" width="16" height="16">|Vrednost koju funkcija vraća ukoliko je kolekcija prazna|
 |key|<img alt="❌" src="Slike/False.svg" width="16" height="16">|Funkcija sa jednim parametrom|
 
