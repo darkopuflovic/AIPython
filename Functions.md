@@ -20,7 +20,7 @@ max(a, b, *c [, key=func])-> value
 |a, b, *c|✅|Više parametara (najmanje 2) od kojih se traži minimum ili maksimum|
 |key|❌|Funkcija sa jednim parametrom|
 
-Funkcije **min** i **max** prihvataju kolekciju podataka ili više parametara koji se tretiraju kao pojedinačni elementi i vraćaju najmanji/najveći. Parametar kojim se prosleđuje lista elemenata može da bude i prazan. Zato je funkciji koja prihvata kolekciju elemenata moguće proslediti i **default** parametar kojim se prosleđuje vrednost koja se vraća ukoliko je lista prazna. Ukoliko ne koristimo parametar default, prazna kolekcija će vratiti *ValueError*. Parametar **key** prihvata funkciju kojoj se svaki element za poređenje prosleđuje, a upoređivanje se vrši na osnovu vrednosti koju je ona vratila.
+Funkcije `min` i `max` prihvataju kolekciju podataka ili više parametara koji se tretiraju kao pojedinačni elementi i vraćaju najmanji/najveći. Parametar kojim se prosleđuje lista elemenata može da bude i prazan. Zato je funkciji koja prihvata kolekciju elemenata moguće proslediti i `default` parametar kojim se prosleđuje vrednost koja se vraća ukoliko je lista prazna. Ukoliko ne koristimo parametar default, prazna kolekcija će vratiti `ValueError`. Parametar `key` prihvata funkciju kojoj se svaki element za poređenje prosleđuje, a upoređivanje se vrši na osnovu vrednosti koju je ona vratila.
 
 ```python
 min([(6,1),(3,3),(7,2),(2,5)],key=lambdax:x[1])
@@ -29,7 +29,7 @@ min([(6,1),(3,3),(7,2),(2,5)],key=lambdax:x[1])
 |Output>|`(6, 1)`|
 |-------|:-------:|
 
-Funkcije min i max imaju i drugačiji potpis, koji prihvata listu argumenata koji se porede. Ovakvi elementi takođe mogu biti kolekcije.
+Funkcije `min` i `max` imaju i drugačiji potpis, koji prihvata listu argumenata koji se porede. Ovakvi elementi takođe mogu biti kolekcije.
 
 ```python
 max((6,1),(3,3),(7,2),(2,5),key=lambdax:x[1])
@@ -65,8 +65,8 @@ sorted(iterable, [key=None, reverse=False]) -> iterable
 
 ## sorted, sort
 
-Funkcija **sorted** prihvata kolekciju podataka, sortira je i vraća novu listu sortiranu u rastući redosled. Kao i kod funkcija min i max, moguće je koristiti *key* parametar koji prihvata funkciju sa jednim parametrom. Takođe je moguće proslediti i *reverse* parametar, koji, ukoliko mu je vrednost *True* sortira u opadajući redosled.
-Ova metoda je funkcionalna, zato što ne menja prethodnu kolekciju. Postoji i nefukcionalna metoda, **sort**. Potpis joj je identičan, ali se poziva nad objektom koji treba sortirati.
+Funkcija `sorted` prihvata kolekciju podataka, sortira je i vraća novu listu sortiranu u rastući redosled. Kao i kod funkcija `min` i `max`, moguće je koristiti `key` parametar koji prihvata funkciju sa jednim parametrom. Takođe je moguće proslediti i `reverse` parametar, koji, ukoliko mu je vrednost `True` sortira u opadajući redosled.
+Ova metoda je funkcionalna, zato što ne menja prethodnu kolekciju. Postoji i nefukcionalna metoda, `sort`. Potpis joj je identičan, ali se poziva nad objektom koji treba sortirati.
 
 ```python
 sorted([(6,1),(3,3),(7,2),(2,5)],key=lambdax:x[1])
@@ -96,6 +96,10 @@ a # vrednost promenjive a je izmenjena
 ```
 
 ## zip
+
+```
+zip(iter1 [, iter2 [...]]) -> zip object
+```
 
 Funkcija `zip` se koristi za spajanje dve kolekcije. Kolekcije se prosleđuju kroz argumente, a funkcija koja obavlja ovo spajanje se ne prosleđuje, već je uvek ista. Svaki element prve kolekcije, sa elementom druge kolekcije na istom indeksu kreira jedan `tuple` tip u rezultujućem nizu.
 
