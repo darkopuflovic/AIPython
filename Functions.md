@@ -11,29 +11,52 @@ max(a, b, *c [, key=func])-> value
 
 |Parametar|Obavezan|Opis|
 |---|---|---|
-|Iterable|<img alt="✅" src="Slike/True.svg" width="24" height="24">|Kolekcija podataka (string, tuple, lista...)|
-|default|<img alt="❌" src="Slike/False.svg" width="24" height="24">|Vrednost koju funkcija vraća ukoliko je kolekcija prazna|
-|key|<img alt="❌" src="Slike/False.svg" width="24" height="24">|Funkcija sa jednim parametrom|
+|Iterable|✅|Kolekcija podataka (string, tuple, lista...)|
+|default|❌|Vrednost koju funkcija vraća ukoliko je kolekcija prazna|
+|key|❌|Funkcija sa jednim parametrom|
 
 |Parametar|Obavezan|Opis|
 |---|--|---|
-|a, b, *c|<img alt="✅" src="Slike/True.svg" width="24" height="24">|Više parametara (najmanje 2) od kojih se traži minimum ili maksimum|
-|key|<img alt="❌" src="Slike/False.svg" width="24" height="24">|Funkcija sa jednim parametrom|
+|a, b, *c|✅|Više parametara (najmanje 2) od kojih se traži minimum ili maksimum|
+|key|❌|Funkcija sa jednim parametrom|
 
-Metode min i max su slične metodama istog naziva u drugim programskim jezicima. One se koriste za izračunavanje minimuma i maksimuma `n` brojeva. To je i razlika između programskog jezika Python i većine drugih jezika. Broj argumenata ovih funkcija nije ograničen.
+Funkcije **min** i **max** prihvataju kolekciju podataka ili više parametara koji se tretiraju kao pojedinačni elementi i vraćaju najmanji/najveći. Parametar kojim se prosleđuje lista elemenata može da bude i prazan. Zato je funkciji koja prihvata kolekciju elemenata moguće proslediti i **default** parametar kojim se prosleđuje vrednost koja se vraća ukoliko je lista prazna. Ukoliko ne koristimo parametar default, prazna kolekcija će vratiti *ValueError*. Parametar **key** prihvata funkciju kojoj se svaki element za poređenje prosleđuje, a upoređivanje se vrši na osnovu vrednosti koju je ona vratila.
 
 ```python
-min(5, 1, 6, 3, 5, 1, 9)
+min([(6,1),(3,3),(7,2),(2,5)],key=lambdax:x[1])
 ```
 
-|Output>|`1`|
+|Output>|`(6, 1)`|
+|-------|:-------:|
+
+Funkcije min i max imaju i drugačiji potpis, koji prihvata listu argumenata koji se porede. Ovakvi elementi takođe mogu biti kolekcije.
+
+```python
+max((6,1),(3,3),(7,2),(2,5),key=lambdax:x[1])
+```
+
+|Output>|`(6, 1)`|
 |-------|:-------:|
 
 ```python
-max(5, 1, 6, 3, 5, 1, 9)
+min([])
 ```
 
-|Output>|`9`|
+|Output>|`ValueError: max() arg is an empty sequence`|
+|-------|:-------:|
+
+```python
+min([],default=0)
+```
+
+|Output>|`0`|
+|-------|:-------:|
+
+```python
+max(["1234","12","123"],key=len)
+```
+
+|Output>|`'1234'`|
 |-------|:-------:|
 
 Kao što smo ranije videli, Python ima još jednu specifičnost, a to je `starred expression`. Na ovaj način je moguće bilo koju kolekciju proslediti kao listu argumenata ovim funkcijama, iako to nije neophodno, zato što argument može da bude i sama lista.
